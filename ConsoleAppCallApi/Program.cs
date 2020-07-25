@@ -17,9 +17,12 @@ namespace ConsoleAppCallFunctionWithAAD
                 .WriteTo.Console(theme: AnsiConsoleTheme.Code)
                 .CreateLogger();
 
-            var id = "9995ef6f-28cf-4752-b0af-97bf5d508094"; // "61de2531-d4d5-4c54-9386-4d87a6f2c2a7";
+            string Scope1 = "api://821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
+            string Scope2 = "821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
+            string Scope3 = "API.Access";
             var ten = "020b0cf3-d6b2-464e-9b2d-45e124244428";
-            var secret = "UFuQh8i.-dJ3PuQ_7xCjLYqm6~_3K0sY3b"; //"-e-fhGQ-9ehMkcb43tEYv_1EecW.EXOEs1";
+            var id = "c64feb8e-4545-4f2c-a0dd-6b72a8d1a8bb";
+            var secret = "M3QN2z.KH7_M~Hm85SJ_I9Y-4IY0SIGo_~";
 
             var host = Host.CreateDefaultBuilder(args)
                 .UseSerilog()
@@ -34,16 +37,18 @@ namespace ConsoleAppCallFunctionWithAAD
                             ClientSecret = secret,
                             GrantType = "client_credentials",
 
+                            //Scope = Scope1,
+
                             Parameters =
                             {
-                                { "resource", "https://stef-function.azurewebsites.net"}
+                                { "resource", "821eb724-edb8-4dba-b425-3f953250c0ae" }
                             }
                         });
                     });
 
                     services.AddClientAccessTokenClient("client", configureClient: client =>
                     {
-                        client.BaseAddress = new Uri("https://stef-function.azurewebsites.net/api/");
+                        client.BaseAddress = new Uri("https://localhost:5001");
                     });
 
                     services.AddHostedService<Worker>();
