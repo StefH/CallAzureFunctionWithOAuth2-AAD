@@ -37,7 +37,7 @@ namespace ConsoleAppCallFunctionWithAAD
                             ClientSecret = secret,
                             GrantType = "client_credentials",
 
-                            //Scope = Scope1,
+                            Scope = Scope1,
 
                             Parameters =
                             {
