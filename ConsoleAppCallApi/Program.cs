@@ -20,9 +20,9 @@ namespace ConsoleAppCallFunctionWithAAD
             string Scope1 = "api://821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
             string Scope2 = "821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
             string Scope3 = "API.Access";
-            var ten = "020b0cf3-d6b2-464e-9b2d-45e124244428";
-            var id = "c64feb8e-4545-4f2c-a0dd-6b72a8d1a8bb";
-            var secret = "M3QN2z.KH7_M~Hm85SJ_I9Y-4IY0SIGo_~";
+            var tenant = "020b0cf3-d6b2-464e-9b2d-45e124244428";
+            var clientId = "c64feb8e-4545-4f2c-a0dd-6b72a8d1a8bb";
+            var clientSecret = "M3QN2z.KH7_M~Hm85SJ_I9Y-4IY0SIGo_~";
 
             var host = Host.CreateDefaultBuilder(args)
                 .UseSerilog()
@@ -32,9 +32,9 @@ namespace ConsoleAppCallFunctionWithAAD
                     {
                         options.Client.Clients.Add("AzureAD", new ClientCredentialsTokenRequest
                         {
-                            Address = $"https://login.microsoftonline.com/{ten}/oauth2/token",
-                            ClientId = id,
-                            ClientSecret = secret,
+                            Address = $"https://login.microsoftonline.com/{tenant}/oauth2/token",
+                            ClientId = clientId,
+                            ClientSecret = clientSecret,
                             GrantType = "client_credentials",
 
                             Scope = Scope1,
