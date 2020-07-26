@@ -8,12 +8,15 @@ namespace ConsoleAppStorageQueue
     {
         static void Main(string[] args)
         {
-            var tc = new ClientSecretCredential("020b0cf3-d6b2-464e-9b2d-45e124244428", "4bd5d21b-1a20-4e86-a06a-b7f8598030b3", "jf864wuqkGDGQHf5uYt--be~5nlc3r-nX8");
-            //var credentialQueueApi = new ClientSecretCredential("020b0cf3-d6b2-464e-9b2d-45e124244428", "1d6309c9-3e22-42d8-bb59-3341a6f8632b", "bvrCA5AXaNI_9v3j2rMQ8jrL4f_Zaf.t.0");
-            var client = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), tc);
+            Console.WriteLine("credentialQueueApi");
+            var credentialQueueApi = new ClientSecretCredential("020b0cf3-d6b2-464e-9b2d-45e124244428", "1d6309c9-3e22-42d8-bb59-3341a6f8632b", "bvrCA5AXaNI_9v3j2rMQ8jrL4f_Zaf.t.0");
+            var client1 = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), credentialQueueApi);
+            client1.SendMessage("credentialQueueApi");
 
-            // this fails with error
-            client.SendMessage("msg");
+            Console.WriteLine("tc");
+            var tc = new ClientSecretCredential("020b0cf3-d6b2-464e-9b2d-45e124244428", "4bd5d21b-1a20-4e86-a06a-b7f8598030b3", "jf864wuqkGDGQHf5uYt--be~5nlc3r-nX8");
+            var client2 = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), tc);
+            client2.SendMessage("tc");
         }
     }
 }

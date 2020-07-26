@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient", "AuditCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppStorageQueue", "ConsoleAppStorageQueue\ConsoleAppStorageQueue.csproj", "{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionAppQueue", "FunctionAppQueue\FunctionAppQueue.csproj", "{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
