@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCallFunctionWithAAD", "ConsoleAppCallFunctionWithAAD\ConsoleAppCallFunctionWithAAD.csproj", "{C444ADDB-E2B0-40FF-9CF0-474F4F4A7BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{DF9442B1-B3FD-46C3-B4AE-A7171E19F421}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{DF9442B1-B3FD-46C3-B4AE-A7171E19F421}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCallApi", "ConsoleAppCallApi\ConsoleAppCallApi.csproj", "{BD65C810-605E-4365-9D4D-49A681511A7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{0E19E53B-E5CC-4196-BB74-C2E4DB322877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{0E19E53B-E5CC-4196-BB74-C2E4DB322877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppServiceBus", "ConsoleAppServiceBus\ConsoleAppServiceBus.csproj", "{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppServiceBus", "ConsoleAppServiceBus\ConsoleAppServiceBus.csproj", "{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stef.AuditClient", "AuditClient\Stef.AuditClient.csproj", "{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient", "AuditClient\Stef.AuditClient.csproj", "{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppStorageQueue", "ConsoleAppStorageQueue\ConsoleAppStorageQueue.csproj", "{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
