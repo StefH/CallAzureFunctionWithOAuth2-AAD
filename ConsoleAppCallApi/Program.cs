@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AuditClient.Options;
 using IdentityModel.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,9 +18,9 @@ namespace ConsoleAppCallFunctionWithAAD
                 .WriteTo.Console(theme: AnsiConsoleTheme.Code)
                 .CreateLogger();
 
-            string Scope1 = "api://821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
-            string Scope2 = "821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
-            string Scope3 = "API.Access";
+            //string Scope1 = "api://821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
+            //string Scope2 = "821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
+            //string Scope3 = "API.Access";
             var tenant = "020b0cf3-d6b2-464e-9b2d-45e124244428";
             var clientId = "c64feb8e-4545-4f2c-a0dd-6b72a8d1a8bb";
             var clientSecret = "M3QN2z.KH7_M~Hm85SJ_I9Y-4IY0SIGo_~";
@@ -28,30 +29,33 @@ namespace ConsoleAppCallFunctionWithAAD
                 .UseSerilog()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddAccessTokenManagement(options =>
-                    {
-                        options.Client.Clients.Add("AzureAD", new ClientCredentialsTokenRequest
-                        {
-                            Address = $"https://login.microsoftonline.com/{tenant}/oauth2/token",
-                            ClientId = clientId,
-                            ClientSecret = clientSecret,
-                            GrantType = "client_credentials",
+                    //services.AddAccessTokenManagement(options =>
+                    //{
+                    //    options.Client.Clients.Add("AzureAD", new ClientCredentialsTokenRequest
+                    //    {
+                    //        Address = $"https://login.microsoftonline.com/{tenant}/oauth2/token",
+                    //        ClientId = clientId,
+                    //        ClientSecret = clientSecret,
+                    //        GrantType = "client_credentials",
 
-                            Scope = Scope1,
+                    //        // Scope = Scope1,
 
-                            Parameters =
-                            {
-                                { "resource", "821eb724-edb8-4dba-b425-3f953250c0ae" }
-                            }
-                        });
-                    });
+                    //        Parameters =
+                    //        {
+                    //            { "resource", "821eb724-edb8-4dba-b425-3f953250c0ae" }
+                    //        }
+                    //    });
+                    //});
 
-                    services.AddClientAccessTokenClient("client", configureClient: client =>
-                    {
-                        client.BaseAddress = new Uri("https://localhost:5001");
-                    });
+                    //services.AddClientAccessTokenClient("client", configureClient: client =>
+                    //{
+                    //    client.BaseAddress = new Uri("https://localhost:5001");
+                    //});
 
-                    services.AddHostedService<Worker>();
+                    //services.Configure<AuditClientOptions>(hostContext.Configuration.GetSection("AuditClientOptions"));
+                    services.AddAuditClient(hostContext.Configuration.GetSection("AuditClientOptions"));
+
+                    services.AddHostedService<Worker2>();
                 });
 
             host.Build().Run();

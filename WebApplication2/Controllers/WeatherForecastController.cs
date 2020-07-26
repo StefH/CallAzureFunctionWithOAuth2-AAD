@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.Resource;
 
 namespace WebApplication2.Controllers
 {
@@ -29,6 +30,7 @@ namespace WebApplication2.Controllers
         [AuthorizeForScopes(Scopes = new[] { "API.Access" })]
         public IEnumerable<WeatherForecast> Get()
         {
+            HttpContext.ValidateAppRole(new string[] { "API.Accessq" });
             _logger.LogInformation("get!");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

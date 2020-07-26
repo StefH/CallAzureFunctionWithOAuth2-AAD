@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCallApi", "Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{0E19E53B-E5CC-4196-BB74-C2E4DB322877}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppServiceBus", "ConsoleAppServiceBus\ConsoleAppServiceBus.csproj", "{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stef.AuditClient", "AuditClient\Stef.AuditClient.csproj", "{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0E19E53B-E5CC-4196-BB74-C2E4DB322877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E19E53B-E5CC-4196-BB74-C2E4DB322877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E19E53B-E5CC-4196-BB74-C2E4DB322877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2952CB28-3E79-481F-9715-9FBEA1CDA6DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
