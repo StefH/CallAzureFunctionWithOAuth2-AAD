@@ -5,6 +5,8 @@ using Azure.Core;
 using Azure.Identity;
 using Azure.Storage;
 using Azure.Storage.Queues;
+using Azure.Storage.Sas;
+using Microsoft.Azure.Storage;
 
 namespace ConsoleAppStorageQueue
 {
@@ -31,9 +33,45 @@ namespace ConsoleAppStorageQueue
             var client1 = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), credentialQueueApi);
             client1.SendMessage("credentialQueueApi" + DateTime.UtcNow);
 
-            
+
+            var s = new StorageSharedKeyCredential("stefsa", "K4HEyKrlX3Bv5kI7Xua73+7hgMdU+X1dFXeNzxEZkN1Y6cAGQsWaeAdJMZhAzYTRXT2eR79TUlhb17x9QpbkXg==");
+            var client3 = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), s);
+            client3.SendMessage("StorageSharedKeyCredential" + DateTime.UtcNow);
+
+            // Create a SAS token that's valid for one hour.
+            var sasBuilder = new QueueSasBuilder()
+            {
+                QueueName = "example-q",
+                StartsOn = DateTimeOffset.UtcNow,
+                ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
+            };
+
+            // Specify read permissions for the SAS.
+            sasBuilder.SetPermissions(QueueSasPermissions.Add);
+
+            // Use the key to get the SAS token.
+            string sasToken = sasBuilder.ToSasQueryParameters(s).ToString();
+
+            // Construct the full URI, including the SAS token.
+            UriBuilder fullUri = new UriBuilder()
+            {
+                Scheme = "https",
+                Host = string.Format("{0}.queue.core.windows.net", "stefsa"),
+                Path = string.Format("{0}", "example-q"),
+                Query = sasToken
+            };
+
+            var q4 = new QueueClient(fullUri.Uri, null);
+            q4.SendMessage("QueueSasBuilder " + DateTime.UtcNow);
+
+            //QueueServiceClient qServiceClient = new QueueServiceClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), new DefaultAzureCredential());
+            //// Get a user delegation key for the Blob service that's valid for seven days.
+            //// You can use the key to generate any number of shared access signatures over the lifetime of the key.
+            //UserDelegationKey key = qServiceClient.GetUserDelegationKey(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
+
+
             //TokenCredential tc = new T();
-           // var x = new StorageSharedKeyCredential();
+            // var x = new StorageSharedKeyCredential();
 
             //StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
