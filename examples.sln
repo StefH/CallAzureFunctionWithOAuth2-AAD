@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppServiceBus", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient", "AuditClient\Stef.AuditClient.csproj", "{CAB13928-1856-4ED1-B0C2-2ECC92BF93AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppStorageQueue", "ConsoleAppStorageQueue\ConsoleAppStorageQueue.csproj", "{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppStorageQueue", "ConsoleAppStorageQueue\ConsoleAppStorageQueue.csproj", "{5CF8E0E1-FBF2-4AA3-B29F-9E37E08D19CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionAppQueue", "FunctionAppQueue\FunctionAppQueue.csproj", "{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionAppQueue", "FunctionAppQueue\FunctionAppQueue.csproj", "{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient2", "Stef.AuditClient2\Stef.AuditClient2.csproj", "{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

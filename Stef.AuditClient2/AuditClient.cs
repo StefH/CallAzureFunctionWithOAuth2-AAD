@@ -27,7 +27,7 @@ namespace Stef.AuditClient
 
             _logger.LogInformation("GetAsync at: {time}", DateTimeOffset.Now);
 
-            var client = _clientFactory.CreateClient(AuditClientConstants.ClientName);
+            var client = _clientFactory.CreateClient(AuditClientConstants.Name);
             var response = await client.GetAsync("weatherforecast", cancellationToken);
             if (response.IsSuccessStatusCode)
             {

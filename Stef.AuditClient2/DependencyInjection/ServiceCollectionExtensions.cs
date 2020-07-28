@@ -39,7 +39,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddAccessTokenManagement(accessTokenManagementOptions =>
             {
-                accessTokenManagementOptions.Client.Clients.Add(AuditClientConstants.TokenClientName, new ClientCredentialsTokenRequest
+                accessTokenManagementOptions.Client.Clients.Add("AzureAD", new ClientCredentialsTokenRequest
                 {
                     Address = $"https://login.microsoftonline.com/{options.TenantId}/oauth2/token",
                     ClientId = options.ClientId,
@@ -52,7 +52,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 });
             });
 
-            services.AddClientAccessTokenClient(AuditClientConstants.ClientName, AuditClientConstants.TokenClientName, configureClient: client =>
+            services.AddClientAccessTokenClient(AuditClientConstants.Name, configureClient: client =>
             {
                 client.BaseAddress = new Uri(options.BaseAddress);
             });
