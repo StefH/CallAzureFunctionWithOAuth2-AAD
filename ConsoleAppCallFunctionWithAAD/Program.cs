@@ -17,9 +17,15 @@ namespace ConsoleAppCallFunctionWithAAD
                 .WriteTo.Console(theme: AnsiConsoleTheme.Code)
                 .CreateLogger();
 
-            var id = "9995ef6f-28cf-4752-b0af-97bf5d508094"; // "61de2531-d4d5-4c54-9386-4d87a6f2c2a7";
-            var ten = "020b0cf3-d6b2-464e-9b2d-45e124244428";
-            var secret = "UFuQh8i.-dJ3PuQ_7xCjLYqm6~_3K0sY3b"; //"-e-fhGQ-9ehMkcb43tEYv_1EecW.EXOEs1";
+            var tenantId = "020b0cf3-d6b2-464e-9b2d-45e124244428";
+
+            // Dit is FunctionsClient2 (werkt)
+            var clientId1 = "9995ef6f-28cf-4752-b0af-97bf5d508094";
+            var clientSecret1 = "UFuQh8i.-dJ3PuQ_7xCjLYqm6~_3K0sY3b";
+
+            // Dit is FunctionsClient (werkt)
+            var clientId = "61de2531-d4d5-4c54-9386-4d87a6f2c2a7";
+            var clientSecret = "-e-fhGQ-9ehMkcb43tEYv_1EecW.EXOEs1";
 
             var host = Host.CreateDefaultBuilder(args)
                 .UseSerilog()
@@ -29,9 +35,9 @@ namespace ConsoleAppCallFunctionWithAAD
                     {
                         options.Client.Clients.Add("AzureAD", new ClientCredentialsTokenRequest
                         {
-                            Address = $"https://login.microsoftonline.com/{ten}/oauth2/token",
-                            ClientId = id,
-                            ClientSecret = secret,
+                            Address = $"https://login.microsoftonline.com/{tenantId}/oauth2/token",
+                            ClientId = clientId,
+                            ClientSecret = clientSecret,
                             GrantType = "client_credentials",
 
                             Parameters =
