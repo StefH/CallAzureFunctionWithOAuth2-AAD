@@ -1,16 +1,31 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Azure.Identity;
 using Azure.Storage;
 using Azure.Storage.Queues;
 using Azure.Storage.Sas;
+using ConsoleAppStorageQueue.Options;
 
 namespace ConsoleAppStorageQueue
 {
 
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            var o = Microsoft.Extensions.Options.Options.Create(new QueueSenderOptions
+            {
+                TenantId = "020b0cf3-d6b2-464e-9b2d-45e124244428",
+                ClientId = "1d6309c9-3e22-42d8-bb59-3341a6f8632b",
+                ClientSecret = "bvrCA5AXaNI_9v3j2rMQ8jrL4f_Zaf.t.0",
+                QueueUri = new Uri("https://stefsa.queue.core.windows.net/example-q")
+            }); ;
+
+            var client = new QueueSender(o);
+            var messageId = await client.SendAsync(new { });
+            Console.WriteLine(messageId);
+            return;
+
             Console.WriteLine("credentialQueueApi");
             var credentialQueueApi = new ClientSecretCredential("020b0cf3-d6b2-464e-9b2d-45e124244428", "1d6309c9-3e22-42d8-bb59-3341a6f8632b", "bvrCA5AXaNI_9v3j2rMQ8jrL4f_Zaf.t.0");
             var client1 = new QueueClient(new Uri("https://stefsa.queue.core.windows.net/example-q"), credentialQueueApi);

@@ -1,4 +1,6 @@
-﻿namespace Stef.AuditClient.MicrosoftIdentityClient.Options
+﻿using System;
+
+namespace Stef.AuditClient.MicrosoftIdentityClient.Options
 {
     public class AuditClientMicrosoftIdentityClientOptions
     {
@@ -6,6 +8,6 @@
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }
         public string Resource { get; set; }
-        public string BaseAddress { get; set; }
+        public Uri BaseAddress { get; set; }
     }
 }

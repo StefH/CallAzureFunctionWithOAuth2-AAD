@@ -41,7 +41,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 .AddTransient<AuthenticationHttpMessageHandler>()
                 .AddHttpClient(AuditClientMicrosoftIdentityClientConstants.Name, c =>
                 {
-                    c.BaseAddress = new Uri(microsoftIdentityClientOptions.BaseAddress);
+                    c.BaseAddress = microsoftIdentityClientOptions.BaseAddress;
                 })
                 .AddHttpMessageHandler<AuthenticationHttpMessageHandler>();
 
