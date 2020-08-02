@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AuditClient.Options;
-using IdentityModel.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
+using Stef.AuditClient.MicrosoftIdentityClient.Options;
 
-namespace ConsoleAppCallFunctionWithAAD
+namespace ConsoleAppCallApi
 {
     class Program
     {
@@ -52,10 +51,17 @@ namespace ConsoleAppCallFunctionWithAAD
                     //    client.BaseAddress = new Uri("https://localhost:5001");
                     //});
 
-                    //services.Configure<AuditClientOptions>(hostContext.Configuration.GetSection("AuditClientOptions"));
-                    services.AddAuditClient(hostContext.Configuration.GetSection("AuditClientOptions"));
 
-                    services.AddHostedService<Worker2>();
+
+                    //services.AddOptions<AuditClientMicrosoftIdentityClientOptions>("AuditClientMicrosoftIdentityClientOptions");
+                    //services.Configure<AuditClientMicrosoftIdentityClientOptions>(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
+
+                    //services.AddSingleton<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>();
+
+                    //services.Configure<AuditClientMicrosoftIdentityClientOptions>(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
+                    services.AddAuditClientMicrosoftIdentity(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
+
+                    services.AddHostedService<Worker3AzureIdentity>();
                 });
 
             host.Build().Run();

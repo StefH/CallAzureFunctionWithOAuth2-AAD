@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Stef.AuditClient;
 
-namespace ConsoleAppCallFunctionWithAAD
+namespace ConsoleAppCallApi
 {
     public class Worker2 : BackgroundService
     {

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
 
-namespace ConsoleAppCallFunctionWithAAD
+namespace ConsoleAppCallApi.NET461
 {
     class Program
     {
@@ -19,7 +19,7 @@ namespace ConsoleAppCallFunctionWithAAD
             var clientSecret = "M3QN2z.KH7_M~Hm85SJ_I9Y-4IY0SIGo_~";
 
             UnityContainer unityContainer = new UnityContainer();
-           
+
 
             var services = new ServiceCollection();
             services.AddLogging(configure => configure.AddConsole());

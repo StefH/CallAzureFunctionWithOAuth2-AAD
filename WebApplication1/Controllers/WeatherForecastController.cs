@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        [AuthorizeForScopes(Scopes = new[] { "API.Access" })]
+        //[AuthorizeForScopes(Scopes = new[] { "API.Access" })]
         public IEnumerable<WeatherForecast> Get()
         {
             _logger.LogInformation("GET : ");

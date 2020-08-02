@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient2", "Stef.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCallApi.NET461", "ConsoleAppCallApi.NET461\ConsoleAppCallApi.NET461.csproj", "{DB93422C-8A4D-46F6-803A-28F06003BB9A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29A0F123-A397-4CFD-AE71-0F7356C58ACF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient.MicrosoftIdentityClient", "Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.MicrosoftIdentityClient.csproj", "{F5AB9471-C4E3-42AE-A1EE-117326843884}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,10 @@ Global
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5AB9471-C4E3-42AE-A1EE-117326843884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5AB9471-C4E3-42AE-A1EE-117326843884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5AB9471-C4E3-42AE-A1EE-117326843884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5AB9471-C4E3-42AE-A1EE-117326843884}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

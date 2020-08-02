@@ -40,12 +40,12 @@ namespace WebApplication1
                 //    // policy.RequireClaim("http://schemas.microsoft.com/identity/claims/scope", "API.Access");
                 //});
 
-                o.AddPolicy("default", builder =>
-                {
-                    builder
-                        .RequireAuthenticatedUser()
-                        .RequireClaim("http://schemas.microsoft.com/identity/claims/scope", new[] { "user_impersonation", "API.Access" });
-                });
+                //o.AddPolicy("default", builder =>
+                //{
+                //    builder
+                //        .RequireAuthenticatedUser()
+                //        .RequireClaim("http://schemas.microsoft.com/identity/claims/scope", new[] { "user_impersonation", "API.Access" });
+                //});
 
 
                 //o.AddPolicy(Policies.WriteTodoItems, policy =>

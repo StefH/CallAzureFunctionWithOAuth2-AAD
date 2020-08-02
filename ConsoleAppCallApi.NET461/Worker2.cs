@@ -1,9 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 using Stef.AuditClient;
 
-namespace ConsoleAppCallFunctionWithAAD
+namespace ConsoleAppCallApi.NET461
 {
     public class Worker2 //: BackgroundService
     {
