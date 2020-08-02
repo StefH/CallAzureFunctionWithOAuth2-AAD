@@ -1,14 +1,15 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Stef.AuditClient;
+using Stef.AuditClient.MicrosoftIdentityClient;
 
 namespace ConsoleAppCallApi.NET461
 {
     public class Worker2 //: BackgroundService
     {
-        private readonly IAuditClient _client;
+        private readonly IAuditClientMicrosoftIdentityClient _client;
 
-        public Worker2(IAuditClient client)
+        public Worker2(IAuditClientMicrosoftIdentityClient client)
         {
             _client = client;
         }
