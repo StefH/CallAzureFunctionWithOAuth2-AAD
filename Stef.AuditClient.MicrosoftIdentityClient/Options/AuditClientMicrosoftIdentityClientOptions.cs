@@ -9,5 +9,6 @@ namespace Stef.AuditClient.MicrosoftIdentityClient.Options
         public string ClientSecret { get; set; }
         public string Resource { get; set; }
         public Uri BaseAddress { get; set; }
+        public string HttpClientName { get; set; }
     }
 }

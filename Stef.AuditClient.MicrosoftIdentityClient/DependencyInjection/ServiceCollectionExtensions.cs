@@ -37,9 +37,14 @@ namespace Microsoft.Extensions.DependencyInjection
 
         private static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, AuditClientMicrosoftIdentityClientOptions microsoftIdentityClientOptions)
         {
+            if (string.IsNullOrEmpty(microsoftIdentityClientOptions.HttpClientName))
+            {
+                microsoftIdentityClientOptions.HttpClientName = AuditClientMicrosoftIdentityClientConstants.Name;
+            }
+
             services
                 .AddTransient<AuthenticationHttpMessageHandler>()
-                .AddHttpClient(AuditClientMicrosoftIdentityClientConstants.Name, c =>
+                .AddHttpClient(microsoftIdentityClientOptions.HttpClientName, c =>
                 {
                     c.BaseAddress = microsoftIdentityClientOptions.BaseAddress;
                 })
