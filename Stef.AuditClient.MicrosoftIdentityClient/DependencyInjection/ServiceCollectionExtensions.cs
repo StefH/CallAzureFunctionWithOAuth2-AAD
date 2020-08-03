@@ -1,10 +1,14 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Client;
+using Polly;
+using Polly.Extensions.Http;
 using Stef.AuditClient.MicrosoftIdentityClient;
 using Stef.AuditClient.MicrosoftIdentityClient.Constants;
 using Stef.AuditClient.MicrosoftIdentityClient.Options;
+using Stef.AuditClient.MicrosoftIdentityClient.RetryPolicies;
 using Stef.AuditClient.MicrosoftIdentityClient.Validation;
 
 // ReSharper disable once CheckNamespace
@@ -56,8 +60,18 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     httpClient.BaseAddress = options.BaseAddress;
                 })
-
-                .AddHttpMessageHandler<AuthenticationHttpMessageHandler>();
+                .AddHttpMessageHandler<AuthenticationHttpMessageHandler>()
+                .AddPolicyHandler((serviceProvider, request) => AuditClientPolicies.RetryPolicy(serviceProvider));
+                //.AddPolicyHandler((serviceProvider, request) =>
+                //HttpPolicyExtensions.HandleTransientHttpError()
+                //    .WaitAndRetryAsync(3,
+                //        sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+                //        onRetry: (outcome, timespan, retryAttempt, context) =>
+                //        {
+                //            serviceProvider.GetService<ILogger<AuditClientMicrosoftIdentityClient>>()
+                //                .LogWarning("Delaying for {delay}ms, then making retry {retry}.", timespan.TotalMilliseconds, retryAttempt);
+                //        }
+                //    ));
 
             services.AddSingleton(Options.Options.Create(options));
 

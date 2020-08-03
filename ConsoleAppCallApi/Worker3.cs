@@ -27,7 +27,7 @@ namespace ConsoleAppCallApi
                 var c2 = _serviceProvider.GetRequiredService<IAuditClientMicrosoftIdentityClient>();
                 await c2.GetAsync(stoppingToken);
 
-                await Task.Delay(10000, stoppingToken);
+                await Task.Delay(5000, stoppingToken);
             }
         }
     }

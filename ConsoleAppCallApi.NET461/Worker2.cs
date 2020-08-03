@@ -20,7 +20,7 @@ namespace ConsoleAppCallApi.NET461
             {
                 await _client.GetAsync(stoppingToken);
 
-                await Task.Delay(10000, stoppingToken);
+                await Task.Delay(5101, stoppingToken);
             }
         }
     }

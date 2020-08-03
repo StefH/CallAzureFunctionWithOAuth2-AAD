@@ -29,7 +29,15 @@ namespace WebApplication1.Controllers
         //[AuthorizeForScopes(Scopes = new[] { "API.Access" })]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.LogInformation("GET : ");
+            var m = DateTime.Now.Millisecond;
+            var hasError = m > 900;
+            _logger.LogInformation("get : has error=" + hasError);
+            if (hasError)
+            {
+                _logger.LogCritical("Exception!");
+                throw new Exception();
+            }
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
