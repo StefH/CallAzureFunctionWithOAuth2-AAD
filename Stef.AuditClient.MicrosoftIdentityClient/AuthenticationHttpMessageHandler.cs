@@ -2,7 +2,6 @@
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-//using Azure.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Identity.Client;
@@ -13,9 +12,8 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
     public class AuthenticationHttpMessageHandler : DelegatingHandler
     {
         private readonly ILogger<AuditClientMicrosoftIdentityClient> _logger;
-        //private readonly ClientSecretCredential _clientSecretCredential;
         private readonly string[] _scopes;
-        private IConfidentialClientApplication _confidentialClientApplication;
+        private readonly IConfidentialClientApplication _confidentialClientApplication;
 
         public AuthenticationHttpMessageHandler(ILogger<AuditClientMicrosoftIdentityClient> logger, IOptions<AuditClientMicrosoftIdentityClientOptions> options)
         {
@@ -23,8 +21,6 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
             var auditClientOptions = options.Value;
 
             _scopes = new[] { $"{auditClientOptions.Resource}/.default" };
-
-            //_clientSecretCredential = new ClientSecretCredential(auditClientOptions.TenantId, auditClientOptions.ClientId, auditClientOptions.ClientSecret);
 
             _confidentialClientApplication = ConfidentialClientApplicationBuilder
                 .Create(auditClientOptions.ClientId)
@@ -35,11 +31,9 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            // var accessToken = (await _clientSecretCredential.GetTokenAsync(new TokenRequestContext(_scopes), cancellationToken)).Token;
             var accessToken = await GetAccessTokenAsync(cancellationToken);
 
             _logger.LogInformation("accessToken : " + accessToken);
-
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);

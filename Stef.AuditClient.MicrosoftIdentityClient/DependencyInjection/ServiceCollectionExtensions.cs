@@ -1,5 +1,4 @@
-﻿//using IdentityModel.Client;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 using Stef.AuditClient.MicrosoftIdentityClient;
 using Stef.AuditClient.MicrosoftIdentityClient.Constants;

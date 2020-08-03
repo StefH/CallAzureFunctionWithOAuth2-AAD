@@ -64,7 +64,7 @@ namespace ConsoleAppCallApi
                     services.AddHostedService<Worker3AzureIdentity>();
                 });
 
-            host.Build().Run();
+            await host.Build().RunAsync();
         }
     }
 }
