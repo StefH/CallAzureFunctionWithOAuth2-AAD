@@ -15,18 +15,24 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
         private readonly string[] _scopes;
         private readonly IConfidentialClientApplication _confidentialClientApplication;
 
-        public AuthenticationHttpMessageHandler(ILogger<AuditClientMicrosoftIdentityClient> logger, IOptions<AuditClientMicrosoftIdentityClientOptions> options)
+        public AuthenticationHttpMessageHandler(
+            ILogger<AuditClientMicrosoftIdentityClient> logger,
+            IOptions<AuditClientMicrosoftIdentityClientOptions> options,
+            IConfidentialClientApplication confidentialClientApplication
+            )
         {
             _logger = logger;
+            _confidentialClientApplication = confidentialClientApplication;
+
             var auditClientOptions = options.Value;
 
             _scopes = new[] { $"{auditClientOptions.Resource}/.default" };
 
-            _confidentialClientApplication = ConfidentialClientApplicationBuilder
-                .Create(auditClientOptions.ClientId)
-                .WithClientSecret(auditClientOptions.ClientSecret)
-                .WithAuthority($"https://login.microsoftonline.com/{auditClientOptions.TenantId}/")
-                .Build();
+            //_confidentialClientApplication = ConfidentialClientApplicationBuilder
+            //    .Create(auditClientOptions.ClientId)
+            //    .WithClientSecret(auditClientOptions.ClientSecret)
+            //    .WithAuthority($"https://login.microsoftonline.com/{auditClientOptions.TenantId}/")
+            //    .Build();
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)

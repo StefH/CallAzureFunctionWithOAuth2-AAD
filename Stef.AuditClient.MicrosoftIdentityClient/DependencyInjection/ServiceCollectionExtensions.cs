@@ -1,10 +1,11 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Identity.Client;
 using Stef.AuditClient.MicrosoftIdentityClient;
 using Stef.AuditClient.MicrosoftIdentityClient.Constants;
 using Stef.AuditClient.MicrosoftIdentityClient.Options;
 using Stef.AuditClient.MicrosoftIdentityClient.Validation;
-using System;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
@@ -34,22 +35,31 @@ namespace Microsoft.Extensions.DependencyInjection
             return services.AddAuditClientMicrosoftIdentity(options);
         }
 
-        private static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, AuditClientMicrosoftIdentityClientOptions microsoftIdentityClientOptions)
+        private static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, AuditClientMicrosoftIdentityClientOptions options)
         {
-            if (string.IsNullOrEmpty(microsoftIdentityClientOptions.HttpClientName))
+            if (string.IsNullOrEmpty(options.HttpClientName))
             {
-                microsoftIdentityClientOptions.HttpClientName = AuditClientMicrosoftIdentityClientConstants.Name;
+                options.HttpClientName = AuditClientMicrosoftIdentityClientConstants.Name;
             }
 
             services
+                .AddSingleton(ConfidentialClientApplicationBuilder
+                    .Create(options.ClientId)
+                    .WithClientSecret(options.ClientSecret)
+                    .WithAuthority($"https://login.microsoftonline.com/{options.TenantId}/")
+                    .Build()
+                )
+
                 .AddTransient<AuthenticationHttpMessageHandler>()
-                .AddHttpClient(microsoftIdentityClientOptions.HttpClientName, c =>
+
+                .AddHttpClient(options.HttpClientName, httpClient =>
                 {
-                    c.BaseAddress = microsoftIdentityClientOptions.BaseAddress;
+                    httpClient.BaseAddress = options.BaseAddress;
                 })
+
                 .AddHttpMessageHandler<AuthenticationHttpMessageHandler>();
 
-            services.AddSingleton(Options.Options.Create(microsoftIdentityClientOptions));
+            services.AddSingleton(Options.Options.Create(options));
 
             services.AddSingleton<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>();
 
