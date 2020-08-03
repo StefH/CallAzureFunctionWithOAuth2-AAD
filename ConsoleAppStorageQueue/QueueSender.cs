@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Azure.Identity;
 using Azure.Storage.Queues;
@@ -15,7 +12,7 @@ namespace ConsoleAppStorageQueue
         Task<string> SendAsync<T>(T value, CancellationToken cancellationToken = default);
     }
 
-    class QueueSender: IQueueSender
+    class QueueSender : IQueueSender
     {
         private readonly QueueClient _client;
 

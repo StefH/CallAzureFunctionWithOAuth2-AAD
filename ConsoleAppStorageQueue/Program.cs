@@ -18,7 +18,7 @@ namespace ConsoleAppStorageQueue
                 TenantId = "020b0cf3-d6b2-464e-9b2d-45e124244428",
                 ClientId = "1d6309c9-3e22-42d8-bb59-3341a6f8632b",
                 ClientSecret = "bvrCA5AXaNI_9v3j2rMQ8jrL4f_Zaf.t.0",
-                QueueUri = new Uri("https://stefsa.queue.core.windows.net/example-q")
+                QueueUri = new Uri("https://stefsa.queue.core.windows.net/example-qa")
             }); ;
 
             var client = new QueueSender(o);
