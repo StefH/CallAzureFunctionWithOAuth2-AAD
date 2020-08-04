@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using Microsoft.Extensions.Hosting;
 using Stef.AuditClient.MicrosoftIdentityClient;
 using System.Threading;
@@ -11,15 +12,20 @@ namespace ConsoleAppCallApi
     {
         private readonly IAuditClientMicrosoftIdentityClient _client;
         private readonly IServiceProvider _serviceProvider;
+        private readonly IHttpClientFactory _f;
 
-        public Worker3AzureIdentity(IAuditClientMicrosoftIdentityClient client, IServiceProvider serviceProvider)
+        public Worker3AzureIdentity(IAuditClientMicrosoftIdentityClient client, IServiceProvider serviceProvider, IHttpClientFactory f)
         {
             _client = client;
             _serviceProvider = serviceProvider;
+            _f = f;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            var g = _f.CreateClient("google");
+            var x = await g.GetAsync("", stoppingToken);
+
             while (!stoppingToken.IsCancellationRequested)
             {
                 await _client.GetAsync(stoppingToken);

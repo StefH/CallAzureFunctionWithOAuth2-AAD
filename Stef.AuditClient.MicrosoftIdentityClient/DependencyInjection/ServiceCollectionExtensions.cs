@@ -55,23 +55,27 @@ namespace Microsoft.Extensions.DependencyInjection
                 )
 
                 .AddTransient<AuthenticationHttpMessageHandler>()
-
-                .AddHttpClient(options.HttpClientName, httpClient =>
+                .AddHttpClient<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>(options.HttpClientName, httpClient =>
                 {
                     httpClient.BaseAddress = options.BaseAddress;
                 })
                 .AddHttpMessageHandler<AuthenticationHttpMessageHandler>()
                 .AddPolicyHandler((serviceProvider, request) => AuditClientPolicies.RetryPolicy(serviceProvider));
-                //.AddPolicyHandler((serviceProvider, request) =>
-                //HttpPolicyExtensions.HandleTransientHttpError()
-                //    .WaitAndRetryAsync(3,
-                //        sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
-                //        onRetry: (outcome, timespan, retryAttempt, context) =>
-                //        {
-                //            serviceProvider.GetService<ILogger<AuditClientMicrosoftIdentityClient>>()
-                //                .LogWarning("Delaying for {delay}ms, then making retry {retry}.", timespan.TotalMilliseconds, retryAttempt);
-                //        }
-                //    ));
+            //.AddPolicyHandler((serviceProvider, request) =>
+            //HttpPolicyExtensions.HandleTransientHttpError()
+            //    .WaitAndRetryAsync(3,
+            //        sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+            //        onRetry: (outcome, timespan, retryAttempt, context) =>
+            //        {
+            //            serviceProvider.GetService<ILogger<AuditClientMicrosoftIdentityClient>>()
+            //                .LogWarning("Delaying for {delay}ms, then making retry {retry}.", timespan.TotalMilliseconds, retryAttempt);
+            //        }
+            //    ));
+
+            services.AddHttpClient("google", httpClient =>
+            {
+                httpClient.BaseAddress = new Uri("https://www.google.com");
+            });
 
             services.AddSingleton(Options.Options.Create(options));
 
