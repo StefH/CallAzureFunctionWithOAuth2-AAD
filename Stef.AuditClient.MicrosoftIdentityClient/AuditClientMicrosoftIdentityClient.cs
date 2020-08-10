@@ -16,12 +16,17 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
         private readonly ILogger<AuditClientMicrosoftIdentityClient> _logger;
         private readonly AuditClientMicrosoftIdentityClientOptions _options;
         private readonly IHttpClientFactory _clientFactory;
+        private readonly HttpClient _client;
 
-        public AuditClientMicrosoftIdentityClient(ILogger<AuditClientMicrosoftIdentityClient> logger, IOptions<AuditClientMicrosoftIdentityClientOptions> options, IHttpClientFactory factory)
+        public AuditClientMicrosoftIdentityClient(
+            ILogger<AuditClientMicrosoftIdentityClient> logger,
+            IOptions<AuditClientMicrosoftIdentityClientOptions> options,
+            IHttpClientFactory factory, HttpClient client)
         {
             _logger = logger;
             _options = options.Value;
             _clientFactory = factory;
+            _client = client;
         }
 
         public async Task<string> GetAsync(CancellationToken cancellationToken)

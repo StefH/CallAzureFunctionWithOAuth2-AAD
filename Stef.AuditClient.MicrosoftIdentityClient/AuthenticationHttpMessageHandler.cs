@@ -16,17 +16,18 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
         private readonly ILogger<AuditClientMicrosoftIdentityClient> _logger;
         private readonly string[] _scopes;
         private readonly IConfidentialClientApplication _confidentialClientApplication;
+        private readonly IAccessTokenService _tokenService;
         private readonly TokenCredential tc;
 
-        public AuthenticationHttpMessageHandler(
+        internal AuthenticationHttpMessageHandler(
             ILogger<AuditClientMicrosoftIdentityClient> logger,
             IOptions<AuditClientMicrosoftIdentityClientOptions> options,
-            IConfidentialClientApplication confidentialClientApplication
+            IConfidentialClientApplication confidentialClientApplication, IAccessTokenService tokenService
             )
         {
             _logger = logger;
             _confidentialClientApplication = confidentialClientApplication;
-
+            _tokenService = tokenService;
             var auditClientOptions = options.Value;
 
             _scopes = new[] { $"{auditClientOptions.Resource}/.default" };
@@ -56,13 +57,15 @@ namespace Stef.AuditClient.MicrosoftIdentityClient
             return authenticationResult.AccessToken;
         }
 
-        private async Task<string> GetAccessTokenViaTokenCredentialAsync(CancellationToken cancellationToken)
+        private Task<string> GetAccessTokenViaTokenCredentialAsync(CancellationToken cancellationToken)
         {
-            var tokenRequestContext = new TokenRequestContext(_scopes);
-            var authenticationResult = await tc.GetTokenAsync(tokenRequestContext, cancellationToken);
+            return _tokenService.GetAccessToken(cancellationToken);
 
-            _logger.LogInformation("expire : " + authenticationResult.ExpiresOn.ToLocalTime());
-            return authenticationResult.Token;
+            //var tokenRequestContext = new TokenRequestContext(_scopes);
+            //var authenticationResult = await tc.GetTokenAsync(tokenRequestContext, cancellationToken);
+
+            //_logger.LogInformation("expire : " + authenticationResult.ExpiresOn.ToLocalTime());
+            //return authenticationResult.Token;
         }
     }
 }

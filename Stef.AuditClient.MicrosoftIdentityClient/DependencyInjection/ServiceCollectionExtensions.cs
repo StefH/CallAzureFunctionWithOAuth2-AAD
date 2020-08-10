@@ -79,7 +79,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddSingleton(Options.Options.Create(options));
 
-            services.AddSingleton<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>();
+            services.AddSingleton<IAccessTokenService, AccessTokenService>();
+            //services.AddSingleton<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>();
 
             return services;
         }
