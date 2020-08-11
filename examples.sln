@@ -19,13 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppStorageQueue", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionAppQueue", "FunctionAppQueue\FunctionAppQueue.csproj", "{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient2", "Stef.AuditClient2\Stef.AuditClient2.csproj", "{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCallApi.NET461", "ConsoleAppCallApi.NET461\ConsoleAppCallApi.NET461.csproj", "{DB93422C-8A4D-46F6-803A-28F06003BB9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29A0F123-A397-4CFD-AE71-0F7356C58ACF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient.MicrosoftIdentityClient", "Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.MicrosoftIdentityClient.csproj", "{F5AB9471-C4E3-42AE-A1EE-117326843884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stef.AuditClient.AzureIdentity", "Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.AzureIdentity.csproj", "{F5AB9471-C4E3-42AE-A1EE-117326843884}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppNetFrameworkOld461", "ConsoleAppNetFrameworkOld461\ConsoleAppNetFrameworkOld461.csproj", "{B5C0044C-8A20-4E04-B4FD-8D1F856B3F85}"
 EndProject
@@ -67,10 +65,6 @@ Global
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4EA8AFC-3FE0-4712-B9A6-25B1F5380DC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5ABBE1E2-9A71-43A5-B2C6-9B1102812CB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB93422C-8A4D-46F6-803A-28F06003BB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU

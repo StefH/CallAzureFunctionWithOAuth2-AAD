@@ -37,7 +37,7 @@
 
   <ItemGroup>
     <!--<ProjectReference Include="..\AuditClient\Stef.AuditClient.csproj" />-->
-    <ProjectReference Include="..\Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.MicrosoftIdentityClient.csproj" />
+    <ProjectReference Include="..\Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.AzureIdentity.csproj" />
   </ItemGroup>
 
 </Project>

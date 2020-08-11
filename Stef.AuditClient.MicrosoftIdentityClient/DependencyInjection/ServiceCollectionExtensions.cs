@@ -47,12 +47,12 @@ namespace Microsoft.Extensions.DependencyInjection
             }
 
             services
-                .AddSingleton(ConfidentialClientApplicationBuilder
-                    .Create(options.ClientId)
-                    .WithClientSecret(options.ClientSecret)
-                    .WithAuthority($"https://login.microsoftonline.com/{options.TenantId}/")
-                    .Build()
-                )
+                //.AddSingleton(ConfidentialClientApplicationBuilder
+                //    .Create(options.ClientId)
+                //    .WithClientSecret(options.ClientSecret)
+                //    .WithAuthority($"https://login.microsoftonline.com/{options.TenantId}/")
+                //    .Build()
+                //)
 
                 .AddTransient<AuthenticationHttpMessageHandler>()
                 .AddHttpClient<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>(options.HttpClientName, httpClient =>

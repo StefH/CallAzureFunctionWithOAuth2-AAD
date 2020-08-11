@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Stef.AuditClient.MicrosoftIdentityClient
 {
-    internal interface IAccessTokenService
+    public interface IAccessTokenService
     {
-        Task<string> GetAccessToken(CancellationToken cancellationToken);
+        Task<string> GetTokenAsync(CancellationToken cancellationToken);
     }
 }

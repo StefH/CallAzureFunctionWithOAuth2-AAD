@@ -165,9 +165,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.MicrosoftIdentityClient.csproj">
+    <ProjectReference Include="..\Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.AzureIdentity.csproj">
       <Project>{f5ab9471-c4e3-42ae-a1ee-117326843884}</Project>
-      <Name>Stef.AuditClient.MicrosoftIdentityClient</Name>
+      <Name>Stef.AuditClient.AzureIdentity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
