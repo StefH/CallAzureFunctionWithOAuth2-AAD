@@ -1,15 +1,11 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client;
-using Polly;
-using Polly.Extensions.Http;
 using Stef.AuditClient.AzureIdentity;
 using Stef.AuditClient.AzureIdentity.Constants;
 using Stef.AuditClient.AzureIdentity.Options;
 using Stef.AuditClient.AzureIdentity.RetryPolicies;
 using Stef.AuditClient.AzureIdentity.Validation;
+using System;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
@@ -17,18 +13,18 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class ServiceCollectionExtensions
     {
         [PublicAPI]
-        public static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, IConfigurationSection section)
+        public static IServiceCollection AddAuditClientAzureIdentity(this IServiceCollection services, IConfigurationSection section)
         {
             Guard.NotNull(services, nameof(services));
 
             var auditClientAzureIdentityOptions = new AuditClientMicrosoftIdentityClientOptions();
             section.Bind(auditClientAzureIdentityOptions);
 
-            return services.AddAuditClientMicrosoftIdentity(auditClientAzureIdentityOptions);
+            return services.AddAuditClientAzureIdentity(auditClientAzureIdentityOptions);
         }
 
         [PublicAPI]
-        public static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, Action<AuditClientMicrosoftIdentityClientOptions> configureAction)
+        public static IServiceCollection AddAuditClientAzureIdentity(this IServiceCollection services, Action<AuditClientMicrosoftIdentityClientOptions> configureAction)
         {
             Guard.NotNull(services, nameof(services));
             Guard.NotNull(configureAction, nameof(configureAction));
@@ -36,14 +32,14 @@ namespace Microsoft.Extensions.DependencyInjection
             var options = new AuditClientMicrosoftIdentityClientOptions();
             configureAction(options);
 
-            return services.AddAuditClientMicrosoftIdentity(options);
+            return services.AddAuditClientAzureIdentity(options);
         }
 
-        private static IServiceCollection AddAuditClientMicrosoftIdentity(this IServiceCollection services, AuditClientMicrosoftIdentityClientOptions options)
+        private static IServiceCollection AddAuditClientAzureIdentity(this IServiceCollection services, AuditClientMicrosoftIdentityClientOptions options)
         {
             if (string.IsNullOrEmpty(options.HttpClientName))
             {
-                options.HttpClientName = AuditClientMicrosoftIdentityClientConstants.Name;
+                options.HttpClientName = AuditClientAzureIdentityConstants.Name;
             }
 
             services

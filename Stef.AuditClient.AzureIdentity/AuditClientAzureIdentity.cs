@@ -12,17 +12,18 @@ namespace Stef.AuditClient.AzureIdentity
     {
         private readonly ILogger<AuditClientAzureIdentity> _logger;
         private readonly AuditClientMicrosoftIdentityClientOptions _options;
-        private readonly IHttpClientFactory _clientFactory;
+        //private readonly IHttpClientFactory _clientFactory;
         private readonly HttpClient _client;
 
         public AuditClientAzureIdentity(
             ILogger<AuditClientAzureIdentity> logger,
             IOptions<AuditClientMicrosoftIdentityClientOptions> options,
-            IHttpClientFactory factory, HttpClient client)
+//            IHttpClientFactory factory,
+            HttpClient client)
         {
             _logger = logger;
             _options = options.Value;
-            _clientFactory = factory;
+  //          _clientFactory = factory;
             _client = client;
         }
 
@@ -35,8 +36,8 @@ namespace Stef.AuditClient.AzureIdentity
 
             _logger.LogInformation("GetAsync at: {time}", DateTimeOffset.Now);
 
-            var client = _clientFactory.CreateClient(_options.HttpClientName);
-            var response = await client.GetAsync("weatherforecast", cancellationToken);
+            //var client = _clientFactory.CreateClient(_options.HttpClientName);
+            var response = await _client.GetAsync("weatherforecast", cancellationToken);
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

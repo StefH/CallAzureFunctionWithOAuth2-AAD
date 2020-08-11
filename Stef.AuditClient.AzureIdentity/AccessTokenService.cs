@@ -34,6 +34,7 @@ namespace Stef.AuditClient.AzureIdentity
         private TokenCredential CreateTokenCredential(AuditClientMicrosoftIdentityClientOptions optionsValue)
         {
             return new ChainedTokenCredential(
+                // new DefaultAzureCredential(),
                 new ManagedIdentityCredential(optionsValue.ClientId),
                 new ClientSecretCredential(optionsValue.TenantId, optionsValue.ClientId, optionsValue.ClientSecret)
             );

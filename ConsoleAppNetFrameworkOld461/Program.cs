@@ -21,7 +21,7 @@ namespace ConsoleAppNetFrameworkOld461
             var services = new ServiceCollection();
             services.AddLogging(configure => configure.AddConsole());
             // services.AddDistributedMemoryCache();
-            services.AddAuditClientMicrosoftIdentity(o =>
+            services.AddAuditClientAzureIdentity(o =>
             {
                 o.BaseAddress = new Uri("https://localhost:5001");
                 o.TenantId = tenant;

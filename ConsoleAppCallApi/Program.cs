@@ -58,7 +58,7 @@ namespace ConsoleAppCallApi
                     //services.AddSingleton<IAuditClientAzureIdentity, AuditClientAzureIdentity>();
 
                     //services.Configure<AuditClientMicrosoftIdentityClientOptions>(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
-                    services.AddAuditClientMicrosoftIdentity(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
+                    services.AddAuditClientAzureIdentity(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
 
                     services.AddHostedService<Worker3AzureIdentity>();
                 });
