@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient.Options
+namespace Stef.AuditClient.AzureIdentity.Options
 {
     public class AuditClientMicrosoftIdentityClientOptions
     {

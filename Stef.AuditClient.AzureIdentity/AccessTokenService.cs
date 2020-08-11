@@ -5,9 +5,9 @@ using Azure.Core;
 using Azure.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Stef.AuditClient.MicrosoftIdentityClient.Options;
+using Stef.AuditClient.AzureIdentity.Options;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient
+namespace Stef.AuditClient.AzureIdentity
 {
     internal class AccessTokenService : IAccessTokenService
     {

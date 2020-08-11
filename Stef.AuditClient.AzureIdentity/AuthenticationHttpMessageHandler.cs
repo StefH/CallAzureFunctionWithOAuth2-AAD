@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient
+namespace Stef.AuditClient.AzureIdentity
 {
     internal class AuthenticationHttpMessageHandler : DelegatingHandler
     {

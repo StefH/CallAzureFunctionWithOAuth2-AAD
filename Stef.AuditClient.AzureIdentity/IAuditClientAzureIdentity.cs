@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient
+namespace Stef.AuditClient.AzureIdentity
 {
-    public interface IAuditClientMicrosoftIdentityClient
+    public interface IAuditClientAzureIdentity
     {
         Task<string> GetAsync(CancellationToken cancellationToken);
     }

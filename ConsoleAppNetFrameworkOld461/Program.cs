@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Threading;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
 
@@ -27,7 +23,7 @@ namespace ConsoleAppNetFrameworkOld461
             // services.AddDistributedMemoryCache();
             services.AddAuditClientMicrosoftIdentity(o =>
             {
-                o.BaseAddress = new System.Uri("https://localhost:5001");
+                o.BaseAddress = new Uri("https://localhost:5001");
                 o.TenantId = tenant;
                 o.ClientId = clientId;
                 o.ClientSecret = clientSecret;

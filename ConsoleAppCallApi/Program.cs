@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
-using Stef.AuditClient.MicrosoftIdentityClient.Options;
 
 namespace ConsoleAppCallApi
 {
@@ -56,7 +55,7 @@ namespace ConsoleAppCallApi
                     //services.AddOptions<AuditClientMicrosoftIdentityClientOptions>("AuditClientMicrosoftIdentityClientOptions");
                     //services.Configure<AuditClientMicrosoftIdentityClientOptions>(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
 
-                    //services.AddSingleton<IAuditClientMicrosoftIdentityClient, AuditClientMicrosoftIdentityClient>();
+                    //services.AddSingleton<IAuditClientAzureIdentity, AuditClientAzureIdentity>();
 
                     //services.Configure<AuditClientMicrosoftIdentityClientOptions>(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));
                     services.AddAuditClientMicrosoftIdentity(hostContext.Configuration.GetSection("AuditClientMicrosoftIdentityClientOptions"));

@@ -165,8 +165,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stef.AuditClient.MicrosoftIdentityClient\Stef.AuditClient.AzureIdentity.csproj">
-      <Project>{f5ab9471-c4e3-42ae-a1ee-117326843884}</Project>
+    <ProjectReference Include="..\Stef.AuditClient.AzureIdentity\Stef.AuditClient.AzureIdentity.csproj">
+      <Project>{68656087-5E1C-4181-A246-FE6270E526C6}</Project>
       <Name>Stef.AuditClient.AzureIdentity</Name>
     </ProjectReference>
   </ItemGroup>

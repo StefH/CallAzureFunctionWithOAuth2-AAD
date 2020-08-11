@@ -6,7 +6,7 @@ using System.Linq;
 using JetBrains.Annotations;
 
 // Copied from https://github.com/aspnet/EntityFramework/blob/dev/src/Shared/Check.cs
-namespace Stef.AuditClient.Validation
+namespace Stef.AuditClient.AzureIdentity.Validation
 {
     [ExcludeFromCodeCoverage]
     [DebuggerStepThrough]

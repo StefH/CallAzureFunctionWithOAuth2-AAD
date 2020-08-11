@@ -1,14 +1,14 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Stef.AuditClient.MicrosoftIdentityClient;
+using Stef.AuditClient.AzureIdentity;
 
 namespace ConsoleAppNetFrameworkOld461
 {
     public class Worker
     {
-        private readonly IAuditClientMicrosoftIdentityClient _client;
+        private readonly IAuditClientAzureIdentity _client;
 
-        public Worker(IAuditClientMicrosoftIdentityClient client)
+        public Worker(IAuditClientAzureIdentity client)
         {
             _client = client;
         }

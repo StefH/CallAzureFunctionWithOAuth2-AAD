@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient
+namespace Stef.AuditClient.AzureIdentity
 {
     public interface IAccessTokenService
     {

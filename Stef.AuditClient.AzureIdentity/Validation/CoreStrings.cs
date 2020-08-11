@@ -2,7 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace Stef.AuditClient.MicrosoftIdentityClient.Validation
+namespace Stef.AuditClient.AzureIdentity.Validation
 {
     [ExcludeFromCodeCoverage]
     internal static class CoreStrings
