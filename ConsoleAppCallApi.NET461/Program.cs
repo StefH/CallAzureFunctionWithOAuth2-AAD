@@ -26,7 +26,7 @@ namespace ConsoleAppCallApi.NET461
             services.AddDistributedMemoryCache();
             services.AddAuditClientAzureIdentity(o =>
             {
-                o.BaseAddress = new System.Uri("http://localhost:5000");
+                o.BaseAddress = new System.Uri("https://localhost:5001");
                 o.TenantId = tenant;
                 o.ClientId = clientId;
                 o.ClientSecret = clientSecret;
