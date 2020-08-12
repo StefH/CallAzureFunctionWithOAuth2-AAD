@@ -78,6 +78,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IAccessTokenService, AccessTokenService>();
             //services.AddSingleton<IAuditClientAzureIdentity, AuditClientAzureIdentity>();
 
+            services.AddMemoryCache();
+
             return services;
         }
     }
