@@ -28,22 +28,34 @@ namespace Stef.AuditClient.AzureIdentity
             _tokenCredential = new Lazy<TokenCredential>(() => CreateTokenCredential(options.Value));
         }
 
-        public async Task<string> GetTokenAsync(CancellationToken cancellationToken)
+        public Task<string> GetTokenAsync(CancellationToken cancellationToken)
         {
-            var cachedAccessToken = await
+           return
                 _cache.GetOrCreateAsync(Key, async entry =>
                 {
                     _logger.LogInformation("getting new token");
                     var accessToken = await _tokenCredential.Value.GetTokenAsync(_tokenRequestContext.Value, cancellationToken).ConfigureAwait(false);
 
                     entry.AbsoluteExpiration = accessToken.ExpiresOn;
-                    return accessToken;
-                }).ConfigureAwait(false);
+                    return accessToken.Token;
+                });
 
-            _logger.LogInformation("token  : " + cachedAccessToken.Token);
-            _logger.LogInformation("expire : " + cachedAccessToken.ExpiresOn.ToLocalTime());
+            //var cachedAccessToken = await
+            //    _cache.GetOrCreateAsync(Key, async entry =>
+            //    {
+            //        _logger.LogInformation("getting new token");
+            //        var accessToken = await _tokenCredential.Value.GetTokenAsync(_tokenRequestContext.Value, cancellationToken).ConfigureAwait(false);
 
-            return cachedAccessToken.Token;
+            //        entry.AbsoluteExpiration = accessToken.ExpiresOn;
+            //        return accessToken.Token;
+            //    }).ConfigureAwait(false);
+
+            //_logger.LogInformation("token  : " + cachedAccessToken);
+            //_logger.LogInformation("expire : " + cachedAccessToken.ExpiresOn.ToLocalTime());
+            //_logger.LogInformation("token  : " + cachedAccessToken.Token);
+            //_logger.LogInformation("expire : " + cachedAccessToken.ExpiresOn.ToLocalTime());
+
+            //return cachedAccessToken; //.Token;
         }
 
         private TokenCredential CreateTokenCredential(AuditClientMicrosoftIdentityClientOptions optionsValue)
